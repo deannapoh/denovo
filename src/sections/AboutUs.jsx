@@ -16,7 +16,9 @@ const AboutUs = () => {
         Through simplifying the adoption process, we aim to connect these deserving pets with caring families, providing them with the love and care they deserve for a second chance at happiness.
         </p>
         <div className = "mt-10">
-        <Button label='View more' />
+          <a href = '/about'> 
+        <Button label='View more'/> 
+        </a>
         </div>
       </div>
       <div className = "flex-1 flex justify-center items-center">

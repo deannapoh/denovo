@@ -1,36 +1,26 @@
-import Nav from "./components/Nav";
-import {
-  Footer,
-  Hero,
-  Pets,
-  HelpUs,
-  Subscribe,
-  AboutUs,
-} from "./sections";
+
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import About from "./pages/About";
+import PetsPage from "./pages/PetsPage";
+import Volunteer from "./pages/Volunteer";
+import Home from "./pages/Home";
+import HelpUs from "./pages/HelpUs";
 
 const App = () => {
   return (
-    <main className='relative'>
-      <Nav />
-      <section className='xl:padding-l wide:padding-r padding-b'>
-        <Hero />
-      </section>
-      <section className='padding'>
-        <Pets />
-      </section>
-      <section className='padding'>
-        <AboutUs />
-      </section>
-      <section className='padding-x py-10'>
-        <HelpUs />
-      </section>
-      <section className='padding-x sm:py-32 py-16 w-full'>
-        <Subscribe />
-      </section>
-      <section className=' bg-black padding-x padding-t pb-8'>
-        <Footer />
-      </section>
-    </main>
+    <div> 
+      <BrowserRouter> 
+      <Routes>
+        <Route index element = {<Home />} />
+      <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/pets" element={<PetsPage />} />
+        <Route path="/volunteer" element={<Volunteer />} />
+        <Route path="/help-us" element={<HelpUs />} />
+    </Routes>
+    </BrowserRouter>
+    </div>
   );
 };
 

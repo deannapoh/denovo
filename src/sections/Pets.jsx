@@ -20,7 +20,9 @@ const Pets = () => {
         <PetsForAdoptionCard key={pet.name} {...pet} />
       ))}
     </div>
+    <a href = '/pets'> 
     <Button label='More' iconURL={arrowRight}/>
+    </a>
   </section>
 );
 };

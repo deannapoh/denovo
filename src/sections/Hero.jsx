@@ -24,8 +24,9 @@ const Hero = () => {
         <p className='font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm'>
           "Best friends come in all shapes and sizes."
         </p>
-
+        <a href = '/pets'> 
         <Button label='Lets go!' iconURL={arrowRight} />
+        </a>
         <div className='flex justify-start items-start flex-wrap w-full mt-14 gap-16'>
           {statistics.map((stat) => (
             <div key={stat.label}>

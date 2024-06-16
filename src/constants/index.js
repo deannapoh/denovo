@@ -5,9 +5,10 @@ export const navLinks = [
     { href: "#home", label: "Home" },
     { href: "#about-us", label: "About Us" },
     { href: "#pets", label: "Pets" },
-    { href: "#help-us", label: "Help Us" },
+    { href: "#help-us", label: "Volunteer/Donate" },
     { href: "#contact-us", label: "Contact Us" },
 ];
+
 
 export const pets = [
     {
