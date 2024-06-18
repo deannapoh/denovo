@@ -6,6 +6,8 @@ import PetsPage from "./pages/PetsPage";
 import Volunteer from "./pages/Volunteer";
 import Home from "./pages/Home";
 import HelpUs from "./pages/HelpUs";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/pets" element={<PetsPage />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/help-us" element={<HelpUs />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
     </Routes>
     </BrowserRouter>
     </div>
