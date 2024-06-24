@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import HelpUs from "./pages/HelpUs";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import AddPets from "./pages/AddPets";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/help-us" element={<HelpUs />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/add-pets" element={<AddPets />} />
     </Routes>
     </BrowserRouter>
     </div>

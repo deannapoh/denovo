@@ -21,14 +21,14 @@ const SignUp = () => {
     <section className = 'mt-20 mb-20 padding max-container flex flex-wrap gap-9 bg-primary'>
         <div className = "flex-1 sm:w-[350px] sm:min-w-[350px] w-full rounded-[20px] shadow-3xl px-10 py-20 bg-white">
         <h3 className = " font-palanquin text-[35px] leading-normal flex justify-center font-bold">Sign<span className= 'text-purple-900'>&nbsp;Up</span></h3>
-        <CardBody className="flex flex-col gap-4 pt-10 pb-10">
+        <CardBody className="flex flex-col gap-4 pt-10 pb-3">
                 <div className= 'mb-5'>
-                <Input label="Email" size="lg" className="rounded-[20px]"/>
+                <Input label="Email" size="lg" className="rounded-[20px] pb-2 pt-2"/>
                 </div>
                 <div className= 'mb-5'>
-                <Input label="Password" size="lg" className="rounded-[20px]" />
+                <Input label="Password" size="lg" className="rounded-[20px] pb-2 pt-2" />
                 </div>
-                <Input label="Confirm Password" size="lg" className="rounded-[20px]" />
+                <Input label="Confirm Password" size="lg" className="rounded-[20px] pb-2 pt-2" />
                 <div className="-ml-2.5"></div>
 
             </CardBody>
