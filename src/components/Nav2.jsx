@@ -15,15 +15,15 @@ const Nav2 = () => {
           />
         </a>
         <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden font-montserrat leading-normal text-lg text-slate-gray'>
-         <a href='/Home'> Home </a>
-         <a href='/About'> About Us </a>
-         <a href='/Pets'> Pets </a>
-         <a href='/HelpUs'> Volunteer/Donate</a>
+         <a href='/Home' className = 'no-underline text-slate-gray pt-3'> Home </a>
+         <a href='/About' className = 'no-underline text-slate-gray pt-3'> About Us </a>
+         <a href='/Pets' className = 'no-underline text-slate-gray pt-3 '> Pets </a>
+         <a href='/HelpUs' className = 'no-underline text-slate-gray pt-3'> Volunteer/Donate</a>
         </ul>
         <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
-          <a href='/sign-in'>Sign in</a>
+          <a href='/sign-in' className = 'no-underline text-black'>Sign in</a>
           <span>/</span>
-          <a href='/sign-up'>Sign up</a>
+          <a href='/sign-up' className = 'no-underline text-black'>Sign up</a>
         </div>
         <div className='hidden max-lg:block'>
           <img src={hamburger} alt='hamburger icon' width={25} height={25} />

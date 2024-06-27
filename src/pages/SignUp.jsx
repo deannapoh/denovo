@@ -18,7 +18,7 @@ const SignUp = () => {
         <section className = 'pb-5'> <Nav2/> </section>
         <section className='pt-10 w-full min-h-screen'>
 
-    <section className = 'mt-20 mb-20 padding max-container flex flex-wrap gap-9 bg-primary'>
+    <section className = 'mt-20 mb-20 padding max-container flex flex-wrap gap-9 bg-primary bg-hero bg-cover'>
         <div className = "flex-1 sm:w-[350px] sm:min-w-[350px] w-full rounded-[20px] shadow-3xl px-10 py-20 bg-white">
         <h3 className = " font-palanquin text-[35px] leading-normal flex justify-center font-bold">Sign<span className= 'text-purple-900'>&nbsp;Up</span></h3>
         <CardBody className="flex flex-col gap-4 pt-10 pb-3">

@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { PetsContext } from "../components/PetsContext";
+
+
 
 const PetsPage = () => {
+ 
   return (
-    <div>PetsPage</div>
+    <div>Pets Page</div>
   )
 }
 

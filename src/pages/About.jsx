@@ -35,7 +35,7 @@ const About = () => {
       </div>
       </section >
       
-      <section className = 'mt-20 mb-20 padding max-container flex flex-wrap gap-9 bg-primary'>
+      <section className = 'bg-hero bg-cover mt-20 mb-20 padding max-container flex flex-wrap gap-9 '>
         <div className = "flex-1 sm:w-[350px] sm:min-w-[350px] w-full rounded-[20px] shadow-3xl px-10 py-20 bg-white">
         <h3 className = " font-palanquin text-[35px] leading-normal flex justify-center font-bold">Our <span className= 'text-purple-900'>&nbsp;Mission</span></h3>
         <p className = "mt-3 break-words font-montserrat text-lg leading-normal text-slate-gray flex justify-center">Through streamlining the adoption and volunteering process, we aim to inspire Singaporeans to adopt not shop and encourage volunteerism and support for animal welfare. </p>

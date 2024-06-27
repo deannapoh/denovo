@@ -14,12 +14,12 @@ const Nav = () => {
             className='m-0 w-[200px] h-[50px]'
           />
         </a>
-        <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden'>
+        <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden pt-3'>
           {navLinks.map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className='font-montserrat leading-normal text-lg text-slate-gray'
+                className='font-montserrat leading-normal text-lg text-slate-gray no-underline'
               >
                 {item.label}
               </a>
@@ -27,9 +27,9 @@ const Nav = () => {
           ))}
         </ul>
         <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
-          <a href='/sign-in'>Sign in</a>
+          <a href='/sign-in' className = 'no-underline text-black'>Sign in</a>
           <span>/</span>
-          <a href='/sign-up'>Sign up</a>
+          <a href='/sign-up' className = 'no-underline text-black'>Sign up</a>
         </div>
         <div className='hidden max-lg:block'>
           <img src={hamburger} alt='hamburger icon' width={25} height={25} />

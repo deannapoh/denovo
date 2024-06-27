@@ -20,7 +20,7 @@ const Pets = () => {
         <PetsForAdoptionCard key={pet.name} {...pet} />
       ))}
     </div>
-    <a href = '/pets'> 
+    <a href = '/pets' className = 'no-underline' > 
     <Button label='More' iconURL={arrowRight}/>
     </a>
   </section>

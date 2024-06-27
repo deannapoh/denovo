@@ -1,5 +1,5 @@
 
-
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import PetsPage from "./pages/PetsPage";
@@ -9,10 +9,12 @@ import HelpUs from "./pages/HelpUs";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import AddPets from "./pages/AddPets";
+import { PetsContextProvider } from "./components/PetsContext";
 
 const App = () => {
   return (
-    <div> 
+    // wrap everything w petscontextprovider so we can use it in any of the components defined below
+    
       <BrowserRouter> 
       <Routes>
         <Route index element = {<Home />} />
@@ -25,9 +27,15 @@ const App = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/add-pets" element={<AddPets />} />
     </Routes>
+  
     </BrowserRouter>
-    </div>
+    
+    
+    
+   
+    
   );
-};
+}; 
+
 
 export default App;
