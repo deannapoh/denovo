@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
@@ -9,13 +10,15 @@ import HelpUs from "./pages/HelpUs";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import AddPets from "./pages/AddPets";
-import { PetsContextProvider } from "./components/PetsContext";
+import AppContext from "./components/AppContext/AppContext";
+
 
 const App = () => {
   return (
-    // wrap everything w petscontextprovider so we can use it in any of the components defined below
+  
     
       <BrowserRouter> 
+      <AppContext> 
       <Routes>
         <Route index element = {<Home />} />
       <Route path="/home" element={<Home />} />
@@ -27,8 +30,9 @@ const App = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/add-pets" element={<AddPets />} />
     </Routes>
-  
+    </AppContext>
     </BrowserRouter>
+   
     
     
     

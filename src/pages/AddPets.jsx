@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import { db } from '../Config';
-import { storage } from '../Config';
+//import { db } from '../Config';
+//import { storage } from '../Config';
+import { db, storage } from '../components/firebase/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
@@ -11,6 +12,8 @@ const AddPets = () => {
   const [petAnimal, setPetAnimal] = useState('');
   const [petBreed, setPetBreed] = useState('');
   const [petAnimalShelter, setPetAnimalShelter] = useState('');
+  const [petGender, setPetGender] = useState('');
+  const [petDescription, setPetDescription] = useState('');
   const [petImg, setPetImg] = useState(null);
   const [error, setError] = useState('');
 
@@ -52,9 +55,11 @@ const AddPets = () => {
             await addDoc(collection(db, 'pets'), {
               Name: petName,
               Age: petAge,
+              Gender: petGender,
               Animal: petAnimal,
               Breed: petBreed,
               AnimalShelter: petAnimalShelter,
+              Description: petDescription,
               Img: url,
             });
             setPetName('');
@@ -62,6 +67,8 @@ const AddPets = () => {
             setPetAnimal('');
             setPetBreed('');
             setPetAnimalShelter('');
+            setPetGender('');
+            setPetDescription('');
             setPetImg(null);
             setError('');
             document.getElementById('file').value = '';
@@ -142,6 +149,11 @@ const AddPets = () => {
       <input type= 'text' className = 'form-control pb-2 pt-2' required
       onChange={(e) => setPetAge(e.target.value)} value={petAge}/>
       <br/>
+      <label htmlFor = "pet-gender"> Gender </label>
+      <br/>
+      <input type= 'text' className = 'form-control pb-2 pt-2' required
+      onChange={(e) => setPetGender(e.target.value)} value={petGender}/>
+      <br/>
       <label htmlFor = "pet-animal"> Animal </label>
       <br/>
       <input type= 'text' className = 'form-control pb-2 pt-2' required
@@ -156,6 +168,11 @@ const AddPets = () => {
       <br/>
       <input type= 'text' className = 'form-control pb-2 pt-2' required
       onChange={(e) => setPetAnimalShelter(e.target.value)} value={petAnimalShelter}/>
+      <br/>
+      <label htmlFor = "pet-gender"> Description </label>
+      <br/>
+      <input type= 'text' className = 'form-control pt-2 pb-5' required
+      onChange={(e) => setPetDescription(e.target.value)} value={petDescription}/>
       <br/>
       <label htmlFor = 'pet-img'> Picture of Pet (format: png/jpeg) </label>
       <br/>

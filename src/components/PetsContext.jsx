@@ -1,4 +1,4 @@
-import React, {createContext} from 'react'
+/*import React, {createContext} from 'react'
 import { db } from '../Config'
 
 export const PetsContext = createContext();
@@ -45,10 +45,12 @@ export class PetsContextProvider extends React.Component{
       </PetsContext.Provider>
     )
   }
-} 
-/*import React, { createContext, Component } from 'react';
-import { db } from '../Config';
-
+} */
+// PetsContext.jsx
+import React, { createContext, Component } from 'react';
+import { collection, onSnapshot } from 'firebase/firestore';
+//import { db } from '../Config';
+import { db } from './firebase/firebase';
 
 export const PetsContext = createContext();
 
@@ -58,35 +60,27 @@ export class PetsContextProvider extends Component {
   };
 
   componentDidMount() {
-    db.collection('pets').onSnapshot(snapshot => {
-      let changes = snapshot.docChanges();
-      const updatedPets = [...this.state.pets];
-
-      changes.forEach(change => {
-        if (change.type === 'added') {
-          updatedPets.push({
-            PetID: change.doc.id,
-            Name: change.doc.data().Name,
-            Animal: change.doc.data().Animal,
-            Age: change.doc.data().Age,
-            AnimalShelter: change.doc.data().AnimalShelter,
-            Breed: change.doc.data().Breed,
-            Img: change.doc.data().Img,
-          });
-        }
-      });
-
-      this.setState({
-        pets: updatedPets
-      });
+    const unsubscribe = onSnapshot(collection(db, 'pets'), (snapshot) => {
+      const updatedPets = snapshot.docs.map((doc) => ({
+        PetID: doc.id,
+        ...doc.data()
+      }));
+      this.setState({ pets: updatedPets });
     });
+
+    this.setState({ unsubscribe });
+  }
+
+  componentWillUnmount() {
+    this.state.unsubscribe();
   }
 
   render() {
     return (
-      <PetsContext.Provider value={{ pets: [...this.state.pets] }}>
+      <PetsContext.Provider value={{ pets: this.state.pets }}>
         {this.props.children}
       </PetsContext.Provider>
     );
   }
-}*/
+}
+
