@@ -15,12 +15,22 @@ const PetsPage = () => {
     <section className = 'pb-5'> <Nav2/> </section>
     {pets.length !== 0 
     &&
-     <h1 className='pt-10 flex justify-center font-palanquin text-4xl capitalize font-bold'>  
-      <span className='text-purple-900'>Pets </span>
-      </h1>
+    <div className='flex flex-col justify-center mt-5'>
+      <h2 className='text-4xl font-palanquin font-bold flex justify-center mt-4'>
+        Animals Looking For Forever&nbsp; <span className='text-purple-900'> Homes </span> 
+      </h2>
+      <div className =  'flex justify-center'> 
+      <p className='lg:max-w-5xl mt-4 font-montserrat text-slate-gray'>
+        Welcome to Denovo, where we believe that every single animal deserves a second chance at happiness. Each one of these furry friends has a unique story to tell and a heart brimming with unconditional love that they cannot wait to shower you with. 
+        <br/>
+        <br/>
+        Adopt a companion today and watch as they touch your hearts in ways no one else can, and change your life for the better.
+      </p>
+      </div>
+    </div>
       }
     <div className = 'pet-container'>
-      {pets.length == 0 && <div className = 'pt-10'> No pets in need of a home for now! All of our pets have found forever homes :D </div>}
+      {pets.length == 0 && <div className = 'pt-10 flex justify-center'> No pets in need of a home for now! All of our pets have found forever homes :D </div>}
       {pets.map(pet => (
         <div className = 'pet-card rounded-md' key = {pet.PetID} >
           <div className="card-inner">
@@ -53,7 +63,7 @@ const PetsPage = () => {
           </div>
           
           </div>
-          <div className="card-back">
+          <div className="card-back text-start text-[15px] bg-hero">
             <p> {pet.Description}</p>
 
             <button className = 'adopt-btn font-palanquin text-[16px] rounded-md '> Adopt me!</button>
