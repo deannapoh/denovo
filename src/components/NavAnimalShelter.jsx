@@ -1,7 +1,6 @@
 import { hamburger } from "../assets/icons";
-import { navLinks } from "../constants";
 
-const Nav2 = () => {
+const NavAnimalShelter = () => {
   return (
     <header className='padding-x py-8 absolute z-10 w-full'>
       <nav className='flex justify-between items-center max-container'>
@@ -16,14 +15,13 @@ const Nav2 = () => {
         </a>
         <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden font-montserrat leading-normal text-lg text-slate-gray'>
          <a href='/Home' className = 'no-underline text-slate-gray pt-3'> Home </a>
-         <a href='/About' className = 'no-underline text-slate-gray pt-3'> About Us </a>
          <a href='/Pets' className = 'no-underline text-slate-gray pt-3 '> Pets </a>
-         <a href='/help-us' className = 'no-underline text-slate-gray pt-3'> Volunteer/Donate</a>
+         <a href='/help-us' className = 'no-underline text-slate-gray pt-3'> Volunteer</a>
+         <a href='/add-pets' className = 'no-underline text-slate-gray pt-3'> Add Pets</a>
+         <a href='/add-volunteers' className = 'no-underline text-slate-gray pt-3'> Add Volunteer Opportunities</a>
         </ul>
         <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
-          <a href='/sign-in' className = 'no-underline text-black'>Sign in</a>
-          <span>/</span>
-          <a href='/sign-up' className = 'no-underline text-black'>Sign up</a>
+          <a className = 'no-underline text-black'>Log out</a>
         </div>
         <div className='hidden max-lg:block'>
           <img src={hamburger} alt='hamburger icon' width={25} height={25} />
@@ -33,4 +31,4 @@ const Nav2 = () => {
   );
 };
 
-export default Nav2;
+export default NavAnimalShelter;

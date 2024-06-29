@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import { db, storage } from '../components/firebase/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import NavAnimalShelter from '../components/NavAnimalShelter';
 
 const AddPets = () => {
 
@@ -123,20 +124,12 @@ const AddPets = () => {
   */
   return (
     <div className = 'container'>
-       <a href='/'>
-          <img
-            src= "denovo.png"
-            alt='logo'
-            width={130}
-            height={29}
-            className='m-5 w-[200px] h-[50px]'
-          />
-        </a>
-      <section className = 'm-0 w-full'> 
+       <section className = 'pb-5'> <NavAnimalShelter/> </section>
+      <section className = 'm-5 w-full'> 
       <h1 className = 'text-purple-900 flex justify-center font-palanquin text-4xl capitalize font-bold'> Add Pets </h1>
       </section>
 
-      <section className = 'padding flex flex-col gap-4 pt-10 pb-10'> 
+      <section className = 'padding flex flex-col gap-4 pb-10'> 
       <form autoComplete = "off" className = 'form-group' onSubmit = {addPet}> 
       <label htmlFor = "pet-name"> Name </label>
       <br/>
@@ -180,6 +173,7 @@ const AddPets = () => {
       onChange={petImgHandler} id = 'file'/>
       <br/>
       <button className = 'btn btn-success btn-md mybtn'> ADD </button>
+      <p className = 'mt-1'> * Details might take a while to upload. Please wait until page has reloaded</p>
       </form>
       {error && <span>{error}</span>}
       </section>

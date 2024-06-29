@@ -50,7 +50,7 @@ const Footer = () => {
           alt = "copyright Sign" 
           width = {20}
           height = {20}
-          className = "rounded-full m-0" />
+          className = "rounded-full mb-3" />
           <p>Copyright. All rights reserved.</p>
 
         </div>

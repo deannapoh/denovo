@@ -4,13 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PetsContextProvider } from './components/PetsContext.jsx';
+import { VolunteersContextProvider } from './components/VolunteerContext.jsx';
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <PetsContextProvider> 
-  
+  <VolunteersContextProvider> 
+
     <App />
-  
-  </PetsContextProvider>,
-)
+
+  </VolunteersContextProvider>
+  </PetsContextProvider>
+);

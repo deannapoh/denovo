@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import AddPets from "./pages/AddPets";
 import AppContext from "./components/AppContext/AppContext";
+import AddVolunteers from "./pages/AddVolunteers";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/add-pets" element={<AddPets />} />
+        <Route path="/add-volunteers" element={<AddVolunteers />} />
     </Routes>
     </AppContext>
     </BrowserRouter>

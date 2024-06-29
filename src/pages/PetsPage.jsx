@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { PetsContext } from "../components/PetsContext";
 import Nav2 from "../components/Nav2";
+import Footer from "../sections/Footer";
 
 
 
@@ -13,11 +14,12 @@ const PetsPage = () => {
     //<div>Pets Page</div>
     <>
     <section className = 'pb-5'> <Nav2/> </section>
+    <section className = 'padding'> 
     {pets.length !== 0 
     &&
-    <div className='flex flex-col justify-center mt-5'>
-      <h2 className='text-4xl font-palanquin font-bold flex justify-center mt-4'>
-        Animals Looking For Forever&nbsp; <span className='text-purple-900'> Homes </span> 
+    <div className='flex flex-col items-center'>
+      <h2 className='text-4xl font-palanquin font-bold text-center mt-4'>
+        Animals Looking For Forever <span className='text-purple-900'> Homes </span> 
       </h2>
       <div className =  'flex justify-center'> 
       <p className='lg:max-w-5xl mt-4 font-montserrat text-slate-gray'>
@@ -73,6 +75,10 @@ const PetsPage = () => {
         
       ))}
     </div>
+    </section>
+    <div className=' bg-black padding-x padding-t pb-8'>
+        <Footer />
+      </div>
     
     
     </>
