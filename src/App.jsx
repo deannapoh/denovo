@@ -4,7 +4,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import PetsPage from "./pages/PetsPage";
-import Volunteer from "./pages/Volunteer";
 import Home from "./pages/Home";
 import HelpUs from "./pages/HelpUs";
 import SignUp from "./pages/SignUp";
@@ -25,7 +24,6 @@ const App = () => {
       <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/pets" element={<PetsPage />} />
-        <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/help-us" element={<HelpUs />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />

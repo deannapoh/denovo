@@ -66,17 +66,20 @@ export const services = [
     {
         imgURL: volunteer,
         label: "Volunteer",
-        subtext: "Make a Difference Across Singapore: Click here to volunteer at an animal shelter near you!"
+        subtext: "Make a Difference Across Singapore: Click here to volunteer at an animal shelter near you!",
+        href: "/help-us"
     },
     {
         imgURL: donate,
         label: "Donate/Sponsor",
-        subtext: "Click here to donate to any animal shelter in Singapore!"
+        subtext: "Can't come down but still want to help? Click here to donate to any animal shelter in Singapore!",
+        href: "/help-us"
     },
     {
         imgURL: educate,
         label: "Educational Resources",
-        subtext: "Still unsure? Click here to learn more about the benefits of adopting an pet!"
+        subtext: "Still unsure? Click here to learn more about the benefits of adopting an pet!",
+        href: "/help-us"
     },
 ];
 

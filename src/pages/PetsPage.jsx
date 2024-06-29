@@ -11,7 +11,6 @@ const PetsPage = () => {
   console.log(pets);
   
   return (
-    //<div>Pets Page</div>
     <>
     <section className = 'pb-5'> <Nav2/> </section>
     <section className = 'padding'> 
