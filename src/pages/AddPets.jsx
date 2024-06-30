@@ -85,47 +85,6 @@ const AddPets = () => {
     );
   };
 
-
-/*
-
-  // add pet form submit event
-  const addPet = (e) => {
-    e.preventDefault();
-    // console.log(petName, petAge, petAnimal, petBreed, petAnimalShelter, petImg);
-    // storing the image
-    const uploadTask = storage.ref(`pet-images/${petImg.name}`).put(petImg);
-    uploadTask.on('state_changed', snapshot => {
-      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log(progress);
-    }, err => {
-      setError(err.message)
-    }, () => {
-      // getting the pet url and if successful, then storing the pet in db
-      storage.ref('pet-images').child(petImg.name).getDownloadURL().then(url => {
-        db.collection('pets').add({
-          Name: petName,
-          Age: petAge,
-          Animal: petAnimal,
-          Breed: petBreed,
-          AnimalShelter: petAnimalShelter,
-          Img: url
-        }).then(() => {
-          // if successfully added, empty the state for clearing input fields
-          setPetName('');
-          setPetAge('');
-          setPetAnimal('');
-          setPetBreed('');
-          setPetAnimalShelter('');
-          setPetImg('');
-          setError('');
-          document.getElementById('file').value = '';
-        }).catch(err => setError(err.message));
-
-      })
-    })
-  } 
-
-  */
   return (
     <div className = 'container'>
        <section className = 'pb-5'> <NavAnimalShelter/> </section>

@@ -1,5 +1,4 @@
 import { hamburger } from "../assets/icons";
-import { navLinks } from "../constants";
 
 const Nav2 = () => {
   return (
