@@ -98,14 +98,10 @@ const AppContext = ({ children }) => {
         });
     };
     
-    
-    
-    
-
-    useEffect(() => {
+   /* useEffect(() => {
         const unsubscribe = userStateChanged();
         return () => unsubscribe();
-    }, []);
+    }, []);*/
 
     const initialState = {
         signInWithGoogle: signInWithGoogle,
@@ -116,6 +112,28 @@ const AppContext = ({ children }) => {
         user: user,
         userData: userData,
     };
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            // User is signed in
+            const q = query(collectionUsersRef, where('uid', '==', user.uid));
+            await onSnapshot(q, (snapshot) => {
+              snapshot.forEach((doc) => {
+                setUserData(doc.data());
+              });
+            });
+            setUser(user);
+          } else {
+            // User is signed out
+            setUser(null);
+            setUserData(null); // Clear user data if needed
+          }
+        });
+      
+        // Cleanup function
+        return () => unsubscribe();
+      }, []);
 
     console.log("user", user);
     console.log("userdata", userData);

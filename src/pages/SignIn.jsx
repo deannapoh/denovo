@@ -22,6 +22,12 @@ import {
 const Signin = () => {
 
   const { signInWithGoogle, loginWithEmailAndPassword } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignIn = () => {
+    loginWithEmailAndPassword(email, password);
+  };
 
   return (
     <main> 
@@ -33,16 +39,16 @@ const Signin = () => {
         <h3 className = " font-palanquin text-[35px] leading-normal flex justify-center font-bold">Sign<span className= 'text-purple-900'>&nbsp;In</span></h3>
         <CardBody className="flex flex-col gap-4 pt-10 pb-3">
                 <div className= 'mb-5'>
-                <Input label="Email" size="lg" className="rounded-[20px] pb-2 pt-2" />
+                <Input label="Email" size="lg" className="rounded-[20px] pb-2 pt-2" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
-                <Input label="Password" size="lg" className="rounded-[20px] pb-2 pt-2" />
+                <Input label="Password" size="lg" className="rounded-[20px] pb-2 pt-2" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <div className="-ml-2.5"></div>
 
             </CardBody>
             <CardFooter className="pt-0">
     
                 <div className="flex justify-center">
-                    <Button label='Sign in' onClick={loginWithEmailAndPassword}/>
+                    <Button label='Sign in' onClick={handleSignIn}/>
                 </div>
 
 <div
