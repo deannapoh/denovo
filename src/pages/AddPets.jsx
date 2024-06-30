@@ -6,6 +6,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import NavAnimalShelter from '../components/NavAnimalShelter';
 
+
 const AddPets = () => {
 
   const [petName, setPetName] = useState('');
@@ -17,6 +18,7 @@ const AddPets = () => {
   const [petDescription, setPetDescription] = useState('');
   const [petImg, setPetImg] = useState(null);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
   const types = ['image/png', 'image/jpeg']
 
@@ -72,7 +74,9 @@ const AddPets = () => {
             setPetDescription('');
             setPetImg(null);
             setError('');
+            setSuccess(true);
             document.getElementById('file').value = '';
+            setTimeout(() => setSuccess(false), 3000); // Hide after 3 seconds
           } catch (err) {
             setError(err.message);
           }
@@ -173,9 +177,10 @@ const AddPets = () => {
       onChange={petImgHandler} id = 'file'/>
       <br/>
       <button className = 'btn btn-success btn-md mybtn'> ADD </button>
-      <p className = 'mt-1'> * Details might take a while to upload. Please wait until page has reloaded</p>
+      <p className = 'mt-1'> * Details might take a while to upload. Please wait until you see the message 'Pet added successfully!'</p>
       </form>
       {error && <span>{error}</span>}
+      {success && <span className='success'>Pet added successfully!</span>}
       </section>
       
       </div>

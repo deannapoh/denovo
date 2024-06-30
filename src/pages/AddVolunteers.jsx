@@ -11,6 +11,7 @@ const AddVolunteers = () => {
   const [volunteerAnimalShelter, setVolunteerAnimalShelter] = useState('');
   const [volunteerDescription, setVolunteerDescription] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
   const addVolunteer = async (e) => {
     e.preventDefault();
@@ -33,6 +34,8 @@ const AddVolunteers = () => {
       setVolunteerAnimalShelter('');
       setVolunteerDescription('');
       setError('');
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000); // Hide after 3 seconds
     } catch (err) {
       setError(err.message);
     }
@@ -79,9 +82,10 @@ const AddVolunteers = () => {
    onChange={(e) => setVolunteerDescription(e.target.value)} value={volunteerDescription}/>
    <br/>
    <button className = 'btn btn-success btn-md mybtn'> ADD </button>
-   <p className = 'mt-1'> * Details might take a while to upload. Please wait until page has reloaded</p>
+   <p className = 'mt-1'> * Details might take a while to upload. Please wait until you see the message 'Volunteer opportunity added successfully!'</p>
    </form>
    {error && <span>{error}</span>}
+   {success && <span className='success'>Volunteer opportunity added successfully!</span>}
    </section>
    
    </div>

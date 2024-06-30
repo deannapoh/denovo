@@ -15,10 +15,10 @@ const NavAnimalShelter = () => {
         </a>
         <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden font-montserrat leading-normal text-lg text-slate-gray'>
          <a href='/Home' className = 'no-underline text-slate-gray pt-3'> Home </a>
-         <a href='/Pets' className = 'no-underline text-slate-gray pt-3 '> Pets </a>
-         <a href='/help-us' className = 'no-underline text-slate-gray pt-3'> Volunteer</a>
          <a href='/add-pets' className = 'no-underline text-slate-gray pt-3'> Add Pets</a>
-         <a href='/add-volunteers' className = 'no-underline text-slate-gray pt-3'> Add Volunteer Opportunities</a>
+         <a href='/delete-pets' className = 'no-underline text-slate-gray pt-3 '> Delete Pets </a>
+         <a href='/add-volunteers' className = 'no-underline text-slate-gray pt-3'> Add Volunteer Opp</a>
+         <a href='/delete-volunteers' className = 'no-underline text-slate-gray pt-3'> Delete Volunteer Opp</a>
         </ul>
         <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
           <a className = 'no-underline text-black'>Log out</a>

@@ -11,6 +11,8 @@ import SignIn from "./pages/SignIn";
 import AddPets from "./pages/AddPets";
 import AppContext from "./components/AppContext/AppContext";
 import AddVolunteers from "./pages/AddVolunteers";
+import DeletePets from "./pages/DeletePets";
+import DeleteVolunteers from "./pages/DeleteVolunteers";
 
 
 const App = () => {
@@ -29,6 +31,8 @@ const App = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/add-pets" element={<AddPets />} />
         <Route path="/add-volunteers" element={<AddVolunteers />} />
+        <Route path="/delete-pets" element={<DeletePets />} />
+        <Route path="/delete-volunteers" element={<DeleteVolunteers />} />
     </Routes>
     </AppContext>
     </BrowserRouter>
