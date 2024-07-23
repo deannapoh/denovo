@@ -13,6 +13,10 @@ import AppContext from "./components/AppContext/AppContext";
 import AddVolunteers from "./pages/AddVolunteers";
 import DeletePets from "./pages/DeletePets";
 import DeleteVolunteers from "./pages/DeleteVolunteers";
+import Homesignin from "./signinpages/Home";
+import Aboutsignin from './signinpages/About';
+import Petssignin from './signinpages/Pets';
+import Helpussignin from './signinpages/HelpUs';
 
 
 const App = () => {
@@ -34,6 +38,12 @@ const App = () => {
         <Route path="/add-volunteers" element={<AddVolunteers />} />
         <Route path="/delete-pets" element={<DeletePets />} />
         <Route path="/delete-volunteers" element={<DeleteVolunteers />} />
+        <Route path="/signin-home" element={<Homesignin />} />
+        <Route path="/signin-about" element={<Aboutsignin />} />
+        <Route path="/signin-pets" element={<Petssignin />} />
+        <Route path="/signin-helpus" element={<Helpussignin />} />
+        
+        
     </Routes>
     </AppContext>
     </BrowserRouter>

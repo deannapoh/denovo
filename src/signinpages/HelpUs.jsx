@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { VolunteerContext } from "../components/VolunteerContext";
-import Nav2 from "../components/Nav2";
+import NavSignin from "../components/NavSignin";
 import Footer from "../sections/Footer";
 import {sosd, spca, guineapigrescuesg, animalloversleague, kittensanctuarysg, oscas} from "../assets/images";
 
@@ -42,7 +42,7 @@ const HelpUs = () => {
   return (
     <>
       <section className="pb-5">
-        <Nav2 />
+        <NavSignin />
       </section>
       <section className="padding">
         {volunteers.length !== 0 && (

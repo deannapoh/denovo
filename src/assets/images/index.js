@@ -20,6 +20,13 @@ import volunteer from './volunteer.png'
 
 import thumbnailBackground from './thumbnail-background.svg'
 
+import guineapigrescuesg from './guineapigrescuesg.png'
+import houserabbitsg from './houserabbitsocietysingapore.png'
+import kittensanctuarysg from './kittensanctuarysg.png'
+import spca from './spca.png'
+import sosd from './sosd.png'
+import oscas from './oscas.png'
+import animalloversleague from './ALL.png'
 
 export {
     dog,
@@ -42,4 +49,11 @@ export {
     volunteer,
 
     thumbnailBackground,
+    guineapigrescuesg,
+    houserabbitsg,
+    kittensanctuarysg,
+    spca,
+    sosd,
+    oscas,
+    animalloversleague,
 }
