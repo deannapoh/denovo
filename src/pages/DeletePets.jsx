@@ -1,9 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { PetsContext } from "../components/PetsContext";
 import NavAnimalShelter from "../components/NavAnimalShelter";
 import Footer from "../sections/Footer";
 import { doc, deleteDoc } from 'firebase/firestore';
-import { db } from "../components/firebase/firebase";
+import { useNavigate } from 'react-router-dom';
+import { db, auth, onAuthStateChanged } from '../components/firebase/firebase';
+import { allowedEmails } from '../constants';
 
 const DeletePets = () => {
   const { pets, setPets } = useContext(PetsContext);
@@ -11,6 +13,25 @@ const DeletePets = () => {
   const [searchName, setSearchName] = useState(""); // State for search input
   const [animalShelterFilter, setAnimalShelterFilter] = useState(""); // State for animal shelter filter
   const [animalFilter, setAnimalFilter] = useState(""); // State for animal filter
+  const [isAllowed, setIsAllowed] = useState(false);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        if (allowedEmails.includes(user.email)) {
+          setIsAllowed(true);
+        } else {
+          navigate("/not-authorized"); // Redirect to a not-authorized page
+        }
+      } else {
+        navigate("/sign-in"); 
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
+
 
   const handleDelete = async (petId) => {
     try {
@@ -35,6 +56,10 @@ const DeletePets = () => {
 
   const uniqueAnimalShelters = [...new Set(pets.map((pet) => pet.AnimalShelter))];
   const uniqueAnimals = [...new Set(pets.map((pet) => pet.Animal))];
+
+  if (!isAllowed) {
+    return <div>Checking authorization...</div>; 
+  }
 
   return (
     <>

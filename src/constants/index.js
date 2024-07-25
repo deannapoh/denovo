@@ -9,6 +9,13 @@ export const navLinks = [
     { href: "#contact-us", label: "Contact Us" },
 ];
 
+export const allowedEmails = ["spca@denovo.com", 
+                            "sosd@denovo.com", 
+                            "oscas@denovo.com", 
+                            "guineapigrescuesg@denovo.com", 
+                            "kittensanctuarysg@denovo.com", 
+                            "all@denovo.com" ];
+
 
 export const pets = [
     {

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { db } from '../components/firebase/firebase';
+import React, { useState, useEffect } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import NavAnimalShelter from '../components/NavAnimalShelter';
+import { useNavigate } from 'react-router-dom';
+import { db, auth, onAuthStateChanged } from '../components/firebase/firebase';
+import { allowedEmails } from '../constants';
+
 
 const AddVolunteers = () => {
   const [volunteerDate, setVolunteerDate] = useState('');
@@ -12,6 +15,24 @@ const AddVolunteers = () => {
   const [volunteerDescription, setVolunteerDescription] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [isAllowed, setIsAllowed] = useState(false);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        if (allowedEmails.includes(user.email)) {
+          setIsAllowed(true);
+        } else {
+          navigate("/not-authorized"); // redirect to a non-authorized page
+        }
+      } else {
+        navigate("/sign-in"); 
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   const addVolunteer = async (e) => {
     e.preventDefault();
@@ -40,6 +61,9 @@ const AddVolunteers = () => {
       setError(err.message);
     }
   };
+  if (!isAllowed) {
+    return <div>Checking authorization...</div>; 
+  }
 
   return (
     <div className = 'container'>

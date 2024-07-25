@@ -28,7 +28,7 @@ const NavSignin = () => {
          <a href='/signin-helpus' className = 'no-underline text-slate-gray pt-3'> Volunteer/Donate</a>
         </ul>
         <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
-          <a href='' className = 'no-underline text-black'>My Account</a>
+          <a href='signin-myaccount' className = 'no-underline text-black'>My Account</a>
           <span>/</span>
           <a href='/Home' className = 'no-underline text-black' onClick={signOutUser}>Logout</a>
         </div>
@@ -39,6 +39,8 @@ const NavSignin = () => {
               <li><a href="/signin-about">About</a></li>
               <li><a href="/signin-pets">Pets</a></li>
               <li><a href="/signin-helpus">Volunteer/Donate</a></li>
+              <li><a href="/my-account">My Account</a></li>
+              <li><a href='/Home' className = 'no-underline' onClick={signOutUser}>Logout</a></li>
             </ul>
           </div>
           <div className={`ham-menu ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>

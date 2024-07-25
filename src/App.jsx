@@ -17,6 +17,8 @@ import Homesignin from "./signinpages/Home";
 import Aboutsignin from './signinpages/About';
 import Petssignin from './signinpages/Pets';
 import Helpussignin from './signinpages/HelpUs';
+import MyAccount from './signinpages/MyAccount';
+import NotAuthorized from "./pages/NotAuthorized";
 
 
 const App = () => {
@@ -42,6 +44,8 @@ const App = () => {
         <Route path="/signin-about" element={<Aboutsignin />} />
         <Route path="/signin-pets" element={<Petssignin />} />
         <Route path="/signin-helpus" element={<Helpussignin />} />
+        <Route path="/signin-myaccount" element={<MyAccount />} />
+        <Route path="/not-authorized" element={<NotAuthorized />} />
         
         
     </Routes>
