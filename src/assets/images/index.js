@@ -27,6 +27,9 @@ import spca from './spca.png'
 import sosd from './sosd.png'
 import oscas from './oscas.png'
 import animalloversleague from './ALL.png'
+import eduresource1 from './12.png'
+import eduresource2 from './13.png'
+import eduresource3 from './14.png'
 
 export {
     dog,
@@ -56,4 +59,8 @@ export {
     sosd,
     oscas,
     animalloversleague,
+
+    eduresource1,
+    eduresource2,
+    eduresource3,
 }

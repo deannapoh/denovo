@@ -38,37 +38,6 @@ export const statistics = [
     { value: '200+', label: 'Newfound families' },
 ];
 
-export const petsforadoption = [
-    {
-        imgURL: dog2,
-        name: "Coco",
-        animal: "Dog",
-        breed: "Chihuahua",
-        age: "5 months",
-    },
-    {
-        imgURL: dog3,
-        name: "Mochi",
-        animal: "Dog",
-        breed: "Maltese",
-        age: "3 months",
-    },
-    {
-        imgURL: cat2,
-        name: "Luna",
-        animal: "Cat",
-        breed: "American Shorthair",
-        age: "2 months",
-    },
-    {
-        imgURL: guineapig,
-        name: "Mocha",
-        animal: "Guinea Pig",
-        breed: "American Guinea Pig",
-        age: "2 years",
-    },
-];
-
 export const services = [
     {
         imgURL: volunteer,
@@ -86,25 +55,9 @@ export const services = [
         imgURL: educate,
         label: "Educational Resources",
         subtext: "Still unsure? Click here to learn more about the benefits of adopting an pet!",
-        href: "/help-us"
+        href: "/educational-resources"
     },
 ];
-
-export const reviews = [
-    {
-        imgURL: customer1,
-        customerName: 'Morich Brown',
-        rating: 4.5,
-        feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
-    },
-    {
-        imgURL: customer2,
-        customerName: 'Lota Mongeskar',
-        rating: 4.5,
-        feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
-    }
-];
-
 
 export const footerLinks = [
     {

@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
@@ -19,6 +17,7 @@ import Petssignin from './signinpages/Pets';
 import Helpussignin from './signinpages/HelpUs';
 import MyAccount from './signinpages/MyAccount';
 import NotAuthorized from "./pages/NotAuthorized";
+import EducationalResources from "./pages/EducationalResources";
 
 
 const App = () => {
@@ -46,6 +45,7 @@ const App = () => {
         <Route path="/signin-helpus" element={<Helpussignin />} />
         <Route path="/signin-myaccount" element={<MyAccount />} />
         <Route path="/not-authorized" element={<NotAuthorized />} />
+        <Route path="/educational-resources" element={<EducationalResources />} />
         
         
     </Routes>

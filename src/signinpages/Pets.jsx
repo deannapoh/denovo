@@ -1,14 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { PetsContext } from "../components/PetsContext";
 import NavSignin from "../components/NavSignin";
 import Footer from "../sections/Footer";
+import { AuthContext } from '../components/AppContext/AppContext';
+import { db } from '../components/firebase/firebase';
+import { arrayUnion, doc, updateDoc, getDoc } from 'firebase/firestore';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const Pets = () => {
   const { pets } = useContext(PetsContext);
   const [animalFilter, setAnimalFilter] = useState("");
   const [genderFilter, setGenderFilter] = useState("");
   const [breedFilter, setBreedFilter] = useState("");
-  
+  const [likedPets, setLikedPets] = useState([]);
+  const { user } = useContext(AuthContext);
+  const userDocRef = doc(db, 'users', `${user?.email}`);
+
+  // Fetch liked pets from database on component load
+  useEffect(() => {
+    const fetchLikedPets = async () => {
+      if (user?.email) {
+        const userDoc = await getDoc(userDocRef);
+        setLikedPets(userDoc.data()?.likedPets || []);
+      }
+    };
+
+    fetchLikedPets();
+  }, [user, userDocRef]);
 
   const uniqueValues = (key) => {
     return [...new Set(pets.map(pet => pet[key]))];
@@ -21,6 +39,33 @@ const Pets = () => {
       (breedFilter ? pet.Breed.toLowerCase() === breedFilter.toLowerCase() : true)
     );
   });
+
+  const handleLike = async (pet) => {
+    if (user?.email) {
+      const isLiked = likedPets.some(likedPet => likedPet.PetID === pet.PetID);
+      if (isLiked) {
+        const updatedLikes = likedPets.filter(likedPet => likedPet.PetID !== pet.PetID);
+        setLikedPets(updatedLikes);
+        await updateDoc(userDocRef, { likedPets: updatedLikes });
+      } else {
+        const updatedLikes = [...likedPets, pet];
+        setLikedPets(updatedLikes);
+        await updateDoc(userDocRef, { likedPets: arrayUnion({
+          PetID: pet.PetID,
+          Age: pet.Age,
+          Animal: pet.Animal,
+          AnimalShelter: pet.AnimalShelter,
+          Breed: pet.Breed,
+          Description: pet.Description,
+          Gender: pet.Gender,
+          Img: pet.Img,
+          Name: pet.Name
+        }) });
+      }
+    } else {
+      alert('Please log in to like a pet');
+    }
+  };
 
   return (
     <>
@@ -51,38 +96,33 @@ const Pets = () => {
               <option key={animal} value={animal}>{animal}</option>
             ))}
           </select>
-          
 
           <select className="form-select" value={genderFilter} onChange={(e) => setGenderFilter(e.target.value)}>
             <option value="">All Genders</option>
             {pets.filter(pet => animalFilter === "" || pet.Animal.toLowerCase() === animalFilter.toLowerCase())
-                 .reduce((uniqueGenders, pet) => {
-              if (!uniqueGenders.includes(pet.Gender)) {
-                   uniqueGenders.push(pet.Gender);
-              }
-              return uniqueGenders;
+              .reduce((uniqueGenders, pet) => {
+                if (!uniqueGenders.includes(pet.Gender)) {
+                  uniqueGenders.push(pet.Gender);
+                }
+                return uniqueGenders;
               }, [])
               .map(gender => (
                 <option key={gender} value={gender}>{gender}</option>
               ))}
           </select>
 
-
-          <select
-          className="form-select"
-          value={breedFilter}
-          onChange={(e) => setBreedFilter(e.target.value)} >
+          <select className="form-select" value={breedFilter} onChange={(e) => setBreedFilter(e.target.value)}>
             <option value="">All Breeds</option>
             {pets
-            .filter(pet => animalFilter === "" || pet.Animal.toLowerCase() === animalFilter.toLowerCase())
-            .reduce((uniqueBreeds, pet) => {
-              if (!uniqueBreeds.includes(pet.Breed)) {uniqueBreeds.push(pet.Breed);}
+              .filter(pet => animalFilter === "" || pet.Animal.toLowerCase() === animalFilter.toLowerCase())
+              .reduce((uniqueBreeds, pet) => {
+                if (!uniqueBreeds.includes(pet.Breed)) { uniqueBreeds.push(pet.Breed); }
                 return uniqueBreeds;
               }, [])
-            .map(breed => (
-              <option key={breed} value={breed}>{breed}</option>
+              .map(breed => (
+                <option key={breed} value={breed}>{breed}</option>
               ))}
-            </select>
+          </select>
 
         </div>
 
@@ -122,6 +162,13 @@ const Pets = () => {
                 <div className="card-back text-start text-[15px] bg-hero">
                   <p>{pet.Description}</p>
                   <button className='adopt-btn font-palanquin text-[16px] rounded-md '>Adopt me!</button>
+                  <button onClick={() => handleLike(pet)} className='like-btn pt-4'>
+                    {likedPets.some(likedPet => likedPet.PetID === pet.PetID) ? (
+                      <FaHeart className='text-red-500 text-2xl' />
+                    ) : (
+                      <FaRegHeart className='text-gray-300 text-2xl' />
+                    )}
+                  </button>
                 </div>
               </div>
             </div>

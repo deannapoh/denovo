@@ -1,4 +1,3 @@
-import {petsforadoption} from '../constants';
 import { PetsContext } from "../components/PetsContext";
 import Button from '../components/Button';
 import { arrowRight } from '../assets/icons';
