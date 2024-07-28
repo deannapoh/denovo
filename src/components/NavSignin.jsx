@@ -39,7 +39,7 @@ const NavSignin = () => {
               <li><a href="/signin-about">About</a></li>
               <li><a href="/signin-pets">Pets</a></li>
               <li><a href="/signin-helpus">Volunteer/Donate</a></li>
-              <li><a href="/my-account">My Account</a></li>
+              <li><a href="/signin-myaccount">My Account</a></li>
               <li><a href='/Home' className = 'no-underline' onClick={signOutUser}>Logout</a></li>
             </ul>
           </div>
