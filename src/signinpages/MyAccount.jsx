@@ -72,54 +72,31 @@ const MyAccount = () => {
     }
   };
 
-  const handleVolunteerLike = async (volunteer) => {
+  const handleVolunteerUnlike = async (volunteer) => {
     if (user?.email) {
+      // Update local state
+      const updatedVolunteers = likedVolunteers.filter(likedVolunteer => likedVolunteer.VolunteerID !== volunteer.VolunteerID);
+      setLikedVolunteers(updatedVolunteers);
+
+      // Update Firestore
       const userDocRef = doc(db, 'users', `${user.email}`);
-      const isLiked = likedVolunteers.some(likedVolunteer => likedVolunteer.VolunteerID === volunteer.VolunteerID);
-
-      if (isLiked) {
-        // Unlike
-        const updatedVolunteers = likedVolunteers.filter(likedVolunteer => likedVolunteer.VolunteerID !== volunteer.VolunteerID);
-        setLikedVolunteers(updatedVolunteers);
-
-        try {
-          await updateDoc(userDocRef, {
-            likedVolunteer: arrayRemove({
-              VolunteerID: volunteer.VolunteerID,
-              Date: volunteer.Date,
-              Time: volunteer.Time,
-              Duration: volunteer.Duration,
-              AnimalShelter: volunteer.AnimalShelter,
-              Prereq: volunteer.Prereq,
-              Description: volunteer.Description,
-            })
-          });
-        } catch (error) {
-          console.error("Error updating Firestore:", error);
-        }
-      } else {
-        // Like
-        const updatedVolunteers = [...likedVolunteers, volunteer];
-        setLikedVolunteers(updatedVolunteers);
-
-        try {
-          await updateDoc(userDocRef, {
-            likedVolunteer: arrayUnion({
-              VolunteerID: volunteer.VolunteerID,
-              Date: volunteer.Date,
-              Time: volunteer.Time,
-              Duration: volunteer.Duration,
-              AnimalShelter: volunteer.AnimalShelter,
-              Prereq: volunteer.Prereq,
-              Description: volunteer.Description,
-            })
-          });
-        } catch (error) {
-          console.error("Error updating Firestore:", error);
-        }
+      try {
+        await updateDoc(userDocRef, {
+          likedVolunteer: arrayRemove({
+            VolunteerID: volunteer.VolunteerID,
+            Date: volunteer.Date,
+            Time: volunteer.Time,
+            Duration: volunteer.Duration,
+            AnimalShelter: volunteer.AnimalShelter,
+            Prereq: volunteer.Prereq,
+            Description: volunteer.Description,
+          })
+        });
+      } catch (error) {
+        console.error("Error updating Firestore:", error);
       }
     } else {
-      alert('Please log in to like or unlike a volunteer opportunity');
+      alert('Please log in to unlike a volunteer opportunity');
     }
   };
 
@@ -199,24 +176,20 @@ const MyAccount = () => {
                 likedVolunteers.map(volunteer => (
                   <div className="volunteer-card rounded-md" key={volunteer.VolunteerID}>
                     <button
-                  onClick={() => handleLike(volunteer)}
-                  className="like-btn absolute top-2 left-2"
-                  style={{
-                    position: 'absolute',
-                    top: '2px',
-                    left: '2px',
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    zIndex: 10
-                  }}
-                >
-                  {likedVolunteers.some(likedVolunteer => likedVolunteer.VolunteerID === volunteer.VolunteerID) ? (
-                    <FaHeart className='text-red-500 text-2xl' />
-                  ) : (
-                    <FaRegHeart className='text-gray-300 text-2xl' />
-                  )}
-                </button>
+                      onClick={() => handleVolunteerUnlike(volunteer)}
+                      className="like-btn absolute top-2 left-2"
+                      style={{
+                        position: 'absolute',
+                        top: '2px',
+                        left: '2px',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        zIndex: 10
+                      }}
+                    >
+                      <FaHeart className='text-red-500 text-2xl' />
+                    </button>
                     <div className="mt-2 ml-3 mr-3 font-montserrat font-normal font-xl text-[15px] leading-normal">
                       <span className="font-semibold">Date: </span>
                       {volunteer.Date}
@@ -242,7 +215,6 @@ const MyAccount = () => {
                       {volunteer.Description}
                     </div>
                     <button className="adopt-btn font-palanquin text-[16px] rounded-md">Volunteer!</button>
-                    
                   </div>
                 ))
               )}
