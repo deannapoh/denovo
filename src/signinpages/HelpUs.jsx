@@ -6,6 +6,7 @@ import { AuthContext } from '../components/AppContext/AppContext';
 import { db } from '../components/firebase/firebase';
 import { arrayUnion, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import {sosd, spca, guineapigrescuesg, animalloversleague, kittensanctuarysg, oscas} from "../assets/images";
 
 const HelpUs = () => {
   const { volunteers } = useContext(VolunteerContext);
@@ -197,8 +198,125 @@ const HelpUs = () => {
           </div>
         </section>
 
-        
+        <section>
+        <h1 className = 'text-4xl font-palanquin font-bold text-center text-purple-900'> Donate </h1>
+        <div className="flex justify-center">
+              <p className="lg:max-w-5xl mt-4 font-montserrat text-slate-gray">
+              Your generosity can make a world of difference for our furry friends. Every donation helps provide food, medical care, and a safe shelter for animals in need. Click on the respective animal shelters below to donate to them!
+              </p>
+        </div>
+        <div className="donate-container">
+  <div className="donate-card rounded-md mt-8 mx-auto max-w-xs text-center p-4">
+    <div className="mt-2 font-montserrat font-normal font-xl text-[15px]">
+    <img 
+        src = {sosd}
+        alt = "sosd"
+        width={500}
+        height = {300}
+    />
+      <span className="font-semibold">SOSD</span>
+    </div>
+    <button className="adopt-btn font-palanquin text-[16px] rounded-md mb-4 w-full">
+      <a href="https://sosd.org.sg/donation/" target="_blank" className="no-underline text-white block w-full">
+        Click to Donate!
+      </a>
+    </button>
+  </div>
+
+  <div className="donate-card rounded-md mt-8 mx-auto max-w-xs text-center p-4">
+    <div className="mt-2 font-montserrat font-normal font-xl text-[15px]">
+    <img 
+        src = {spca}
+        alt = "spca"
+        width={600}
+        height = {300}
+        className = 'mb-5'
+    />
+      <span className="font-semibold">SPCA</span>
+    </div>
+    <button className="adopt-btn font-palanquin text-[16px] rounded-md mt-2 mb-4 w-full">
+      <a href="https://portal.spca.org.sg/Donation/DonateNow" target="_blank" className="no-underline text-white block w-full">
+        Click to Donate!
+      </a>
+    </button>
+  </div>
+
+  <div className="donate-card rounded-md mt-8 mx-auto max-w-xs text-center p-4">
+    <div className="mt-2 font-montserrat font-normal font-xl text-[15px]">
+    <img 
+        src = {oscas}
+        alt = "oscas"
+        width={600}
+        height = {300}
+        className = 'mb-6'
+    />
+      <span className="font-semibold">OSCAS</span>
+    </div>
+    <button className="adopt-btn font-palanquin text-[16px] rounded-md mt-2 mb-4 w-full">
+      <a href="https://www.oscas.sg/help-donate" target="_blank" className="no-underline text-white block w-full">
+        Click to Donate!
+      </a>
+    </button>
+  </div>
+
+  <div className="donate-card rounded-md mt-8 mx-auto max-w-xs text-center p-4">
+    <div className="mt-2 font-montserrat font-normal font-xl text-[15px]">
+    <img 
+        src = {guineapigrescuesg}
+        alt = "guinea pig rescue singapore"
+        width={600}
+        height = {300}
+        className = 'mb-12'
+    />
+      <span className="font-semibold">Guinea Pig Rescue Singapore</span>
+    </div>
+    <button className="adopt-btn font-palanquin text-[16px] rounded-md mt-2 mb-4 w-full">
+      <a href="https://www.guineapigrescuesg.com/donate" target="_blank" className="no-underline text-white block w-full">
+        Click to Donate!
+      </a>
+    </button>
+  </div>
+
+  <div className="donate-card rounded-md mt-8 mx-auto max-w-xs text-center p-4">
+    <div className="mt-2 font-montserrat font-normal font-xl text-[15px]">
+    <img 
+        src = {kittensanctuarysg}
+        alt = "kitten sanctuary sg"
+        width={600}
+        height = {300}
+        className = 'mb-12'
+    />
+      <span className="font-semibold">Kitten Sanctuary SG</span>
+    </div>
+    <button className="adopt-btn font-palanquin text-[16px] rounded-md mt-2 mb-4 w-full">
+      <a href="https://www.kittensanctuarysg.org/donate" target="_blank" className="no-underline text-white block w-full">
+        Click to Donate!
+      </a>
+    </button>
+  </div>
+
+  <div className="donate-card rounded-md mt-8 mx-auto max-w-xs text-center p-4">
+    <div className="mt-2 font-montserrat font-normal font-xl text-[15px]">
+    <img 
+        src = {animalloversleague}
+        alt = "animal lovers league"
+        width={600}
+        height = {300}
+        className = 'mb-12'
+    />
+      <span className="font-semibold">Animal Lovers League</span>
+    </div>
+    <button className="adopt-btn font-palanquin text-[16px] rounded-md mt-2 mb-4 w-full">
+      <a href="https://www.animalloversleague.com/donate" target="_blank" className="no-underline text-white block w-full">
+        Click to Donate!
+      </a>
+    </button>
+  </div>
+</div>
+        </section>
+      
       </section>
+      
       <div className="bg-black padding-x padding-t pb-8">
         <Footer />
       </div>
